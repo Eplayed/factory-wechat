@@ -1,127 +1,70 @@
-// eslint-disable-next-line import/no-commonjs
-const path = require("path");
-
 const config = {
-  projectName: "quick-work-taro-app",
-  date: "2019-9-17",
+  projectName: 'myApp',
+  date: '2020-9-3',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2,
+    828: 1.81 / 2
   },
-  alias: {
-    "@": path.resolve(__dirname, "..", "src"),
+  sourceRoot: 'src',
+  outputRoot: 'dist',
+  plugins: [],
+  defineConstants: {
   },
-  sourceRoot: "src",
-  outputRoot: "dist",
-  babel: {
-    sourceMap: true,
-    presets: [["env", { modules: false }]],
-    plugins: [
-      "transform-decorators-legacy",
-      "transform-class-properties",
-      "transform-object-rest-spread",
-      [
-        "transform-runtime",
-        {
-          helpers: false,
-          polyfill: false,
-          regenerator: true,
-          moduleName: "babel-runtime",
-        },
-      ],
-    ],
-  },
-  plugins: {
-    babel: {
-      sourceMap: true,
-      presets: [
-        [
-          "env",
-          {
-            modules: false,
-          },
-        ],
-      ],
-      plugins: [
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-object-rest-spread",
-        [
-          "transform-runtime",
-          {
-            helpers: false,
-            polyfill: false,
-            regenerator: true,
-            moduleName: "babel-runtime",
-          },
-        ],
-      ],
-    },
-  },
-  defineConstants: {},
   copy: {
-    patterns: [],
-    options: {},
+    patterns: [
+    ],
+    options: {
+    }
   },
-  weapp: {
-    module: {
-      postcss: {
-        autoprefixer: {
-          enable: true,
-          config: {
-            browsers: ["last 3 versions", "Android >= 4.1", "ios >= 8"],
-          },
-        },
-        pxtransform: {
-          enable: true,
-          config: {},
-        },
-        url: {
-          enable: true,
-          config: {
-            limit: 409600, // 设定转换尺寸上限
-          },
-        },
-        cssModules: {
-          enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true , 经本人实测，不建议启用
-          config: {
-            namingPattern: "module", // 转换模式，取值为 global/module
-            generateScopedName: "[name]__[local]___[hash:base64:5]",
-          },
-        },
+  framework: 'react',
+  mini: {
+    postcss: {
+      pxtransform: {
+        enable: true,
+        config: {
+
+        }
       },
-    },
+      url: {
+        enable: true,
+        config: {
+          limit: 1024 // 设定转换尺寸上限
+        }
+      },
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
+    }
   },
   h5: {
-    publicPath: "/",
-    staticDirectory: "static",
-    esnextModules: ["taro-ui"],
-    module: {
-      postcss: {
-        autoprefixer: {
-          enable: true,
-          config: {
-            browsers: ["last 3 versions", "Android >= 4.1", "ios >= 8"],
-          },
-        },
-        cssModules: {
-          enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
-          config: {
-            namingPattern: "module", // 转换模式，取值为 global/module
-            generateScopedName: "[name]__[local]___[hash:base64:5]",
-          },
-        },
+    publicPath: '/',
+    staticDirectory: 'static',
+    postcss: {
+      autoprefixer: {
+        enable: true,
+        config: {
+        }
       },
-    },
-  },
-};
-
-module.exports = function(merge) {
-  // eslint-disable-next-line no-process-env
-  if (process.env.NODE_ENV === "development") {
-    return merge({}, config, require("./dev"));
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
+    }
   }
-  return merge({}, config, require("./prod"));
-};
+}
+
+module.exports = function (merge) {
+  if (process.env.NODE_ENV === 'development') {
+    return merge({}, config, require('./dev'))
+  }
+  return merge({}, config, require('./prod'))
+}
