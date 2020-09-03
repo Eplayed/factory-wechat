@@ -1,3 +1,11 @@
+/*
+ * @Author: zyj
+ * @Date: 2020-09-03 15:09:43
+ * @LastEditors: zyj
+ * @LastEditTime: 2020-09-03 20:16:49
+ * @Description: file content
+ * @FilePath: /factorynike-mini/config/index.js
+ */
 const config = {
   projectName: 'myApp',
   date: '2020-9-3',

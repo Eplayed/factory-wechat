@@ -1,8 +1,8 @@
 {
-	"miniprogramRoot": ".dist",
+	"miniprogramRoot": "dist/",
 	"projectname": "myApp",
 	"description": "",
-	"appid": "touristappid",
+	"appid": "wx6c1335a951e878da",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -14,7 +14,8 @@
 		"coverView": true,
 		"showShadowRootInWxmlPanel": false,
 		"scopeDataCheck": false,
-		"useCompilerModule": false
+		"useCompilerModule": true,
+		"checkSiteMap": true
 	},
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
