@@ -1,0 +1,17 @@
+@import "../../assets/style/global.scss";
+.report_page {
+  .userDeatil {
+    height: 170px;
+    .user_bg {
+      top: -170px;
+    }
+  }
+  .noData {
+    padding: 160px 80px;
+    height: calc(100vh - 600px);
+    image {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}

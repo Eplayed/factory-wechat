@@ -1,0 +1,38 @@
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #fff;
+  height: 146px;
+  border: 1px solid #eee;
+  // border-radius: 48px 48px 0px 0px;
+  // box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  .tabList {
+    display: flex;
+    height: 108px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px;
+  }
+  .tabImgs {
+    .tabTn {
+      width: 44px !important;
+      height: 44px !important;
+    }
+    .qrcode {
+      width: 68px !important;
+      height: 68px !important;
+    }
+  }
+
+  .name {
+    text-align: center;
+    font-size: 20px;
+    color: #999;
+    &.active {
+      color: #a8334d;
+    }
+  }
+}
