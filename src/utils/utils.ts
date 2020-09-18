@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import { baseUrl } from "../config/baseUrl";
 import logo from "@/images/card/logo_title.png";
-import logo_title from "@/images/card/logo_title_bg.png";
+// import logo_title from "@/images/card/logo_title_bg.png";
 
 export const getUrlParam = () => {
   /**
@@ -211,7 +211,7 @@ export const drawImage = async (item_info, qrcode) => {
   ctx.setFillStyle(grd_in);
   ctx.fillRect(15, 80, 292, 448);
 
-  ctx.drawImage(logo_title, 0, 0, 332, 100);
+//   ctx.drawImage(logo_title, 0, 0, 332, 100);
 
   // // 绘制圆形用户头像
   const res = await Taro.downloadFile({
