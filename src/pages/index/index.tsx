@@ -1,22 +1,33 @@
-import React, { Component } from 'react'
-import { View, Text, Swiper, SwiperItem } from '@tarojs/components'
-import { AtButton, } from 'taro-ui'
+import React, { Component } from "react";
+import { View, Text, Swiper, SwiperItem } from "@tarojs/components";
+import { AtButton } from "taro-ui";
 
-import './index.scss'
+import "./index.scss";
+
+type StateType = {
+  [propName: string]: any;
+};
 
 export default class Index extends Component {
+  state: StateType = {
+    client: "driver"
+  };
+  componentWillMount() {}
 
-  componentWillMount() { }
+  componentDidMount() {}
 
-  componentDidMount() { }
+  componentWillUnmount() {}
 
-  componentWillUnmount() { }
+  componentDidShow() {}
 
-  componentDidShow() { }
+  componentDidHide() {}
 
-  componentDidHide() { }
+  renderName = (name)=>{
+   return name==='driver'?'司机':'收货端'
+  }
 
   render() {
+    const {client} = this.state
     return (
       <View className='index'>
         <Swiper
@@ -37,7 +48,8 @@ export default class Index extends Component {
             <View className='demo-text-3'>3</View>
           </SwiperItem>
         </Swiper>
+    <View>{this.renderName(client)}</View>
       </View>
-    )
+    );
   }
 }
