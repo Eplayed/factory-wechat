@@ -1,3 +1,11 @@
+/*
+ * @Author: zyj
+ * @Date: 2020-09-18 08:52:59
+ * @LastEditors: zyj
+ * @LastEditTime: 2021-02-03 15:32:06
+ * @Description: file content
+ * @FilePath: /factorynike-mini/src/pages/login/index.tsx
+ */
 import React, { Component } from "react";
 import { wx_login } from "@/api/login";
 import { View, Text, Swiper, SwiperItem } from "@tarojs/components";

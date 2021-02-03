@@ -2,13 +2,19 @@
  * @Author: zyj
  * @Date: 2020-09-03 15:09:43
  * @LastEditors: zyj
- * @LastEditTime: 2021-02-01 10:52:22
+ * @LastEditTime: 2021-02-03 15:32:51
  * @Description: file content
  * @FilePath: /factorynike-mini/src/pages/index/index.tsx
  */
 import React, { Component } from "react";
 import { View, Text, Swiper, SwiperItem, Image } from "@tarojs/components";
-import { AtButton, AtAvatar, AtCard, AtGrid } from "taro-ui";
+import { AtButton, AtAvatar, AtCard, AtGrid,AtIcon } from "taro-ui";
+import Taro from '@tarojs/taro'
+import shangbao from '@/assets/image/shangbao.png'
+import ths from '@/assets/image/ths.png'
+import tihuo from '@/assets/image/tihuo.png'
+import yunshu from '@/assets/image/yunshu.png'
+import bannerImg from '@/assets/image/banner.png'
 
 import "./index.scss";
 
@@ -21,24 +27,20 @@ export default class Index extends Component {
     client: "driver",
     navData: [
       {
-        image:
-          "https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png",
-        // value: "领取中心"
+        image: yunshu,
+        value: "运输任务"
       },
       {
-        image:
-          "https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png",
-        // value: "找折扣"
+        image:shangbao,
+        value: "在途上报"
       },
       {
-        image:
-          "https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png",
-        // value: "领会员"
+        image:tihuo,
+        value: "强制提货"
       },
       {
-        image:
-          "https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png",
-        // value: "新品首发"
+        image:ths,
+        value: "TAD"
       }
     ]
   };
@@ -53,21 +55,38 @@ export default class Index extends Component {
   componentDidHide() {}
 
   renderName = name => {
-    return name === "driver" ? "司机" : "收货端";
+    return name === "driver" ? "TMS司机端" : "收货端";
   };
+  handleIconClick = ()=>{
+    console.log(123)
+    Taro.navigateTo({
+      url: "/pages/mine/index"
+    });
+  }
 
   render() {
     const { client, navData } = this.state;
     return (
       <View className="index">
-        <AtAvatar
+        <View className="header">
+        {/* <AtAvatar
+          className="marginSpace"
+          circle
+          image={logo}
+          // size="small"
+        ></AtAvatar> */}
+        {/* <AtAvatar
           className="marginSpace"
           circle
           text="我的"
           size="small"
-        ></AtAvatar>
-        <AtCard title="上汽乘用车有限责任公司" className="cardBanner">
-          <Swiper
+        ></AtAvatar> */}
+        <View style={'width:40px'}></View>
+        <View className="clientName">{this.renderName(client)}</View>
+        <AtIcon value='user' size='30' color='#fff' onClick={()=>this.handleIconClick()}></AtIcon>
+        </View>
+        <View className="cardBanner">
+        <Swiper
             className="test-h"
             indicatorColor="#999"
             indicatorActiveColor="#333"
@@ -79,7 +98,7 @@ export default class Index extends Component {
               <View className="bannerItem">
                 <Image
                   mode="aspectFill"
-                  src="http://www.saicgroup.com/chinese/images/pictures/2018/rx8/rx8_02.jpg"
+                  src={bannerImg}
                 ></Image>
               </View>
             </SwiperItem>
@@ -87,7 +106,7 @@ export default class Index extends Component {
               <View className="bannerItem">
                 <Image
                   mode="aspectFill"
-                  src="http://www.saicgroup.com/chinese/images/pictures/2018/mg6/mg6_01.jpg"
+                  src={bannerImg}
                 ></Image>
               </View>
             </SwiperItem>
@@ -95,23 +114,40 @@ export default class Index extends Component {
               <View className="bannerItem">
                 <Image
                   mode="aspectFill"
-                  src="http://www.saicgroup.com/chinese/images/pictures/D90_1.jpg"
+                  src={bannerImg}
                 ></Image>
               </View>
             </SwiperItem>
           </Swiper>
-        </AtCard>
+        </View>
+
 
         {/* <View>{this.renderName(client)}</View> */}
-        <View>
-          <AtGrid columnNum={4} data={navData} />
+        <View className="grid">
+          {/* <AtGrid hasBorder={false} columnNum={4} data={navData} /> */}
+          <View className="navContent">
+            {
+              navData.map(item=>(
+                <View className="navItem">
+                  <Image mode="aspectFit" src={item.image}></Image>
+                  <View className="navVal">{item.value}</View>
+                </View>
+              ))
+            }
+           
+          </View>
         </View>
-        <View>
-
-  <View className="content">
-    暂无数据
-  </View>
-        </View>
+        {/* <View>
+          <View className="content">
+            <View className="noDataImg">
+              <Image
+                mode="aspectFill"
+                src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2419010027,1924767588&fm=26&gp=0.jpg"
+              ></Image>
+            </View>
+            <View className="noData">暂无数据</View>
+          </View>
+        </View> */}
       </View>
     );
   }

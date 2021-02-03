@@ -1,10 +1,20 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-bottom: 5px;
+    background-color: #1C76F6;
+    .clientName{
+        font-size: 36px;
+        color: #fff;
+    }
+}
 .marginSpace{
     margin-left: 10px;
     margin-right: 10px;
 }
 .cardBanner{
-    margin-top: 10px;
-    margin-bottom: 10px;
+
     .bannerItem{
         width: 100%;
         height: 100%;
@@ -12,17 +22,62 @@
             width: 100%;
             height: 100%;
         }
+        .navVal{
+            font-size: 24px;
+        }
     }
-}
+} 
 .at-card__content{
     padding: 0;
 }
-.content{
-    height: 300px;
+.grid{
     margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgb(172, 172, 172);
+    height:280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .navContent{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        .navItem{
+            display: flex;
+            flex-basis: 25%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        
+            image{
+                width: 70px;
+                height: 70px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    
+}
+
+.content{
+    margin: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #eee;
-    border-radius: 4px;
+    flex-direction: column;
+    .noDataImg{
+        width:60%;
+        height: 400px;
+        image{
+            width:100%;
+        height: 100%;
+        }
+    }
+    .noData{
+        color:#999;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 }
