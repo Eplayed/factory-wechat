@@ -2,13 +2,13 @@
  * @Author: zyj
  * @Date: 2020-12-14 14:28:58
  * @LastEditors: zyj
- * @LastEditTime: 2020-12-14 15:29:57
+ * @LastEditTime: 2021-02-07 10:13:13
  * @Description: file content
  * @FilePath: /factorynike-mini/src/pages/mine/index.tsx
  */
 import Taro, { FC } from "@tarojs/taro";
 import { View, ScrollView, Button } from "@tarojs/components";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import "./index.scss";
 // 函数式组件
 const Page = ()=> {
