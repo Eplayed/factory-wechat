@@ -1,24 +1,11 @@
-/*
- * @Author: zyj
- * @Date: 2020-09-03 15:09:43
- * @LastEditors: zyj
- * @LastEditTime: 2020-09-18 09:12:00
- * @Description: file content
- * @FilePath: /factorynike-mini/config/index.js
- */
-import { resolve } from "path";
-
 const config = {
-  projectName: 'myApp',
-  date: '2020-9-3',
+  projectName: 'wx_mine_demo',
+  date: '2022-6-29',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2
-  },
-  alias: {
-    "@": resolve(__dirname, "..", "src"),
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
@@ -31,7 +18,7 @@ const config = {
     options: {
     }
   },
-  framework: 'react',
+  framework: 'vue',
   mini: {
     postcss: {
       pxtransform: {
@@ -75,7 +62,7 @@ const config = {
   }
 }
 
-export default function (merge) {
+module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }
